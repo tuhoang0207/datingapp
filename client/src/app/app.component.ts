@@ -6,9 +6,12 @@ import { Component, OnInit ,Injectable} from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+
+
 export class AppComponent implements OnInit {
   title = 'dating app';
-  user: any;
+  users: any;
+
   constructor(private http: HttpClient) {}
   ngOnInit() {
     this.getUser();
@@ -17,7 +20,7 @@ export class AppComponent implements OnInit {
   getUser() {
     // debugger
     this.http.get('https://localhost:5001/api/users').subscribe((response) => {
-      next: this.user = response;
+      next: this.users = response;
       error: console.log(console.error());
     });
   }
