@@ -10,14 +10,14 @@ import { Component, OnInit ,Injectable} from '@angular/core';
 
 export class AppComponent implements OnInit {
   title = 'dating app';
-  users: any;
+  users: any; //declare variables
 
   constructor(private http: HttpClient) {}
   ngOnInit() {
     this.getUser();
   }
 
-  getUser() {
+  getUser() { //declare function
     // debugger
     this.http.get('https://localhost:5001/api/users').subscribe((response) => {
       next: this.users = response;
