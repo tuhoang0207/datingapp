@@ -10,7 +10,7 @@
         <span class="navbar-toggler-icon"></span>
       </button> -->
         <!-- <div class="collapse navbar-collapse" id="navbarCollapse"> -->
-        <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="currentUser$ | async">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ | async">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Matches</a>
             </li>
@@ -20,12 +20,12 @@
             <li class="nav-item">
                 <a class="nav-link">Messages</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" (click)="logout()">Logout</a>
-            </li>
+            </li> -->
         </ul>
 
-        <div class="dropdown" *ngIf="currentUser$ | async" dropdown>
+        <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
             <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown button
               </button> -->
@@ -37,7 +37,7 @@
         </div>
 
 
-        <form *ngIf="!currentUser$ | async"  #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" 
+        <form *ngIf="(accountService.currentUser$ | async) === null"  #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" 
         autocomplete="off">
 
             <input 

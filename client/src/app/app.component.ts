@@ -14,10 +14,10 @@ export class AppComponent implements OnInit {
   title = 'dating app'; //declare variables name title and assign value
   users: any; //declare variables
 
-  constructor(private http: HttpClient, private accountService: AccountService) {}
+  constructor(private accountService: AccountService) {}
 
   ngOnInit() { 
-    this.getUser();
+    // this.getUser();
     this.setCurrentUser()
   }
 
@@ -25,17 +25,15 @@ export class AppComponent implements OnInit {
     
     const user : User = JSON.parse(localStorage.getItem('user') as string); //convert type to string
     
-    
-
     //get data user from local storage and pass it to current user
     this.accountService.setCurrentUser(user);
   }
 
-  getUser() { //declare function
-    // debugger
-    this.http.get('https://localhost:5001/api/users').subscribe((response) => {
-      next: this.users = response;
-      error: console.log(console.error());
-    });
-  }
+  // getUser() { //declare function
+  //   // debugger
+  //   this.http.get('https://localhost:5001/api/users').subscribe((response) => {
+  //     next: this.users = response;
+  //     error: console.log(console.error());
+  //   });
+  // }
 }
