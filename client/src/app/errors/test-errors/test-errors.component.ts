@@ -18,7 +18,11 @@ export class TestErrorsComponent implements OnInit {
   get404Error() {
     this.http.get(this.baseUrl + 'buggy/not-found').subscribe(response => {
       console.log(response);
+      console.log("ok");
+      
     }, error => {
+      console.log("loi roi");
+      
       console.log(error);
     })
   }
@@ -26,7 +30,11 @@ export class TestErrorsComponent implements OnInit {
   get400Error() {
     this.http.get(this.baseUrl + 'buggy/bad-request').subscribe(response => {
       console.log(response);
+      console.log("ok 400");
+      
     }, error => {
+      console.log('loi roi 400');
+      
       console.log(error);
     })
   }
