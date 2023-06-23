@@ -33,4 +33,16 @@ export class NavComponent implements OnInit {
     this.accountService.logout();
     this.router.navigateByUrl('/');
   }
+
+  isDropdownOpen: boolean = false;
+  selectedItem: string = '';
+
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  selectItem(item: string): void {
+    this.selectedItem = item;
+    this.isDropdownOpen = false;
+  }
 }
