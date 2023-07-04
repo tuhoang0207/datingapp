@@ -2,7 +2,7 @@ import { Photo } from "./photo"
 
 export interface Member {
   id: number
-  username: string
+  userName: string
   photoUrl: string
   gender: string
   age: number
@@ -14,7 +14,7 @@ export interface Member {
   interests: string
   city: string
   country: string
-  Photos: Photo[]
+  photos: Photo[]
 }
 
 

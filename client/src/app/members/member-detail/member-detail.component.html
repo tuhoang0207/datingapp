@@ -97,23 +97,23 @@
             <div class="img-container">
                <img src="{{member.photoUrl}}" alt="Image" id="preview" >
                <div class="img-prev text-center">
-                  <div class="img-slide ">
-                    <img src="https://randomuser.me/api/portraits/women/31.jpg" alt="Image1" (click)="imageChange($event)">
+                  <div class="img-slide"  *ngFor="let photo of member.photos">
+                    <img src="{{ photo.url || './assets/user.png' }}" alt="Image1" (click)="imageChange($event)">
                   </div>
-                  <div class="img-slide">
-                    <img src="https://randomuser.me/api/portraits/women/77.jpg" alt="Image2" (click)="imageChange($event)">
+                  <!-- <div class="img-slide">
+                    <img src="{{ member.photoUrl || './assets/user.png' }}" alt="Image2" (click)="imageChange($event)">
                   </div>
                   <div class="img-slide">
                     <img src="{{ member.photoUrl || './assets/user.png' }}" alt="Image3" (click)="imageChange($event)">
                   </div>
                   <div class="img-slide">
                     <img src="{{ member.photoUrl || './assets/user.png' }}" alt="Image4" (click)="imageChange($event)">
-                  </div>
+                  </div> -->
                </div>
             </div>
           </div>
         </section>
-      </div>
+      </div>  
   
       <div id="tab4" class="tab-content">
         <p>Messages will go here</p>
