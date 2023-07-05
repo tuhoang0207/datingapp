@@ -1,3 +1,27 @@
 .dropdown-toggle, .dropdown-item {
     cursor: pointer;
 }
+
+.img{
+    max-height: 50px;
+    border: 2px solid #fff;
+    display: inline;
+}
+
+img {
+    width: 20%;
+    height: 20%;
+    margin-right: 10px;
+}
+
+div.dropdown.ng-star-inserted {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: end;
+    align-items: center; 
+}

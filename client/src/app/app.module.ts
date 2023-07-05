@@ -27,6 +27,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 
 @NgModule({
@@ -54,7 +55,11 @@ import { FileUploadModule } from 'ng2-file-upload';
     FormsModule, 
     SharedModule,
     NgxSpinnerModule,
-    FileUploadModule
+    FileUploadModule,
+    NgxGalleryModule
+  ],
+  exports: [
+    NgxGalleryModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
