@@ -20,8 +20,6 @@ div.dropdown.ng-star-inserted {
     align-items: center;
 }
 
-.dropdown {
-    display: flex;
-    justify-content: end;
-    align-items: center; 
+ul.dropdown-menu.show {
+    bottom: -35px;
 }

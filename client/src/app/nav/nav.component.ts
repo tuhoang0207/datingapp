@@ -15,7 +15,7 @@ export class NavComponent implements OnInit {
   // loggedIn: boolean = false;
   // currentUser$? : Observable<User>;
   obj = JSON.parse(localStorage.getItem('user'));
-  UserName: string = this.obj.UserName;
+  // UserName: string = this.obj.UserName;
   constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
