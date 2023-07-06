@@ -1,8 +1,8 @@
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AccountService } from '../_services/account.service';
 import { ToastrService } from 'ngx-toastr';
-import { AccountService } from './../_services/account.service';
-import { Component, Input, Output ,OnInit, EventEmitter } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,19 +10,28 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
-  model: any = {};
   registerForm: FormGroup;
-form: any;
-
-  constructor(private accountService: AccountService, private toastr: ToastrService) {}
+  // private fb: FormBuilder;
+  form: any;
+  maxDate: Date;
+  validationErrors: string[] = [];
+  constructor(private accountService: AccountService, private toastr: ToastrService,
+    private fb: FormBuilder,private router: Router) {}
 
   ngOnInit(): void {
     this.initializeForm();
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18)
   }
 
   initializeForm() {
-    this.registerForm = new FormGroup({
-      username: new FormControl('', Validators.required),
+    this.registerForm = this.fb.group({
+      gender: ['male'],
+      username: ['', Validators.required], 
+      knownAs: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
       password: new FormControl('',[Validators.required, 
         Validators.minLength(4), Validators.maxLength(8)]),
       confirmPassword: new FormControl('', [Validators.required, this.matchValues('password')])
@@ -38,15 +47,11 @@ form: any;
 
 
   register() {
-    console.log(this.registerForm.value);
-    
-    // this.accountService.register(this.model).subscribe(response => {
-    //   console.log(response);
-    //   this.cancel(); 
-    // }, error => {
-    //   console.log(error);
-    //   this.toastr.error(error.error);
-    // })
+    this.accountService.register(this.registerForm.value).subscribe(response => {
+      this.router.navigateByUrl('/members'); 
+    }, error => {
+      this.validationErrors = error;
+    })
 
   }
 
