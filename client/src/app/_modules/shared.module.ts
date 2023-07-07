@@ -7,6 +7,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FormGroup } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import {BsDatepickerModule } from 'ngx-bootstrap/datepicker'
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 // import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 @NgModule({
@@ -19,14 +20,16 @@ import {BsDatepickerModule } from 'ngx-bootstrap/datepicker'
     }),
     FileUploadModule,
     NgxGalleryModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    PaginationModule.forRoot()
     // TabsModule.forRoot()
   ],
   exports: [
     // BsDropdownModule,
     // ToastrModule
     NgxGalleryModule,
-    BsDatepickerModule
+    BsDatepickerModule,
+    PaginationModule
   ],
 })
 export class SharedModule {}
