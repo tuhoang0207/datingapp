@@ -36,7 +36,7 @@
   </div>
 
   <div class="col-8">
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs" #memberTabs>
       <li class="nav-item">
         <a
           class="nav-link"
@@ -94,7 +94,7 @@
     </div>
 
     <div id="tab4" class="tab-content">
-        <app-member-messages [username]="member.username"></app-member-messages>
+        <app-member-messages [username]="member.userName"></app-member-messages>
     </div>
   </div>
 </div>

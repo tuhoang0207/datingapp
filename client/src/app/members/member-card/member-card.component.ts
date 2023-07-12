@@ -10,7 +10,7 @@ import { MembersService } from 'src/app/_services/members.service';
   
 })
 export class MemberCardComponent implements OnInit {
-  @Input() member: Member;
+  @Input() member: Member | undefined;
   constructor(private memberService: MembersService, private toastr: ToastrService) {
   }
   ngOnInit(): void {
