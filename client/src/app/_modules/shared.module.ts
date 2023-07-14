@@ -34,7 +34,8 @@ import {TimeagoModule} from 'ngx-timeago';
     BsDatepickerModule,
     PaginationModule,
     ButtonsModule,
-    TimeagoModule
+    TimeagoModule,
+    TabsModule,
   ],
 })
 export class SharedModule {}
